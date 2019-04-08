@@ -1,0 +1,50 @@
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="page-header">
+			<h1>Créer un nouvel article</h1>
+			<div class="btn-group">
+				<a routerLink="/dashboard"><i class="fa fa-tachometer-alt"></i> Aller vers le tableau de bord</a> .::. 
+				<a routerLink="/feed"><i class="fa fa-newspaper"></i> Aller vers le blog &rarr;</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<flash-message *ngIf="errorMessage" type="danger" message="{{ errorMessage }}"></flash-message>
+
+		<flash-message *ngIf="infoMessage" type="info" message="{{ infoMessage }}"></flash-message>
+		
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<form (ngSubmit)="submit()" #f="ngForm" autocomplete="off">
+			<div class="form-group">
+				<label for="name" class="control-label">Titre</label>
+				<input type="text" [(ngModel)]="name" name="name" id="name" class="form-control" required autofocus="autofocus">
+			</div>
+
+			<div class="form-group">
+				<label for="content" class="control-label">Contenu</label>
+				<textarea [(ngModel)]="content" name="content" id="content" cols="30" rows="5" class="form-control" required></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="category_id">Catégorie</label>
+				<select [(ngModel)]="category" name="category" id="category_id" class="form-control">
+					<option value=""></option>
+					<option value="{{ category.name }}" *ngFor="let category of categories">{{ category.name }}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Enregistrer cet article</button>
+			</div>
+		</form>
+	</div>
+</div>
