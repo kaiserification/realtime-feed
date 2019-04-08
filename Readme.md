@@ -1,2 +1,1 @@
-"Les taches propos�s par Bakeli" 
-"Realtime feed avec Angular 7" 
+Tache n°2 proposés par M. Sangharé à propos de realtime feed avec Angular 7
